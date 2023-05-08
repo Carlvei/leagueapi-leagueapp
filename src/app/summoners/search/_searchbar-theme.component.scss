@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme, $backgrounds-theme) {
+  $color-config: mat.get-color-config($theme);
+  $backgrounds-color-config: mat.get-color-config($backgrounds-theme);
+
+  $primary-palette: map.get($color-config, primary);
+  $background-palette: map.get($backgrounds-color-config, primary);
+
+  .welcome-text {
+    color: mat.get-color-from-palette($primary-palette)
+  }
+
+  .summoner-input {
+    background-color: mat.get-color-from-palette($primary-palette, 50);
+  }
+}

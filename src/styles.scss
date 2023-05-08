@@ -2,6 +2,7 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 @use 'app/navbar/navbar-theme.component' as navbar;
+@use 'app/summoners/search/searchbar-theme.component' as searchbar;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -30,12 +31,22 @@ $leagueapp-theme: mat.define-light-theme((
     backgrounds: $leagueapp-backgrounds
   )
 ));
+
+$leagueapp-backgrounds-theme: mat.define-light-theme((
+  color: (
+    primary: $leagueapp-backgrounds,
+    accent: $leagueapp-accent,
+    warn: $leagueapp-warn,
+  )
+));
+
 // My palette: 0C120C C20114 6D7275 C7D6D5 D4AA7D
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($leagueapp-theme);
 @include navbar.color($leagueapp-theme);
+@include searchbar.color($leagueapp-theme, $leagueapp-backgrounds);
 
 /* You can add global styles to this file, and also import other style files */
 

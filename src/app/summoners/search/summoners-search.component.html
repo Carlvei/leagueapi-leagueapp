@@ -1,25 +1,11 @@
 <p class="welcome-text">Welcome to the Summoner search</p>
 
-<input
-  type="text"
-  class="summoner-input"
-  placeholder="Search for summoner ..."
-  [(ngModel)]="summonerInput">
+<div class="searchbar">
+  <input
+    type="text"
+    class="summoner-input"
+    placeholder="Search for summoner ..."
+    [(ngModel)]="summonerInput">
 
-<button class="search-button" (click)="onSearchSummoner()">Search</button>
-
-<!--
-<div style="font-size: 20px">
-  <form>
-    <mat-form-field class="summoner-input">
-      <mat-label>Summoner name</mat-label>
-      <input type="text" class="summoner-input" matInput [formControl]="summonerInput" placeholder="Summoner name ...">
-      <mat-error *ngIf="summonerInput.hasError('required')">
-        Wie wärs wenn du nen Namen eintippst?
-      </mat-error>
-    </mat-form-field>
-    <button type="submit">Submit</button>
-  </form>
+  <button class="search-button" (click)="onSearchSummoner()">Search</button>
 </div>
--->
-
