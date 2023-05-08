@@ -1,1 +1,52 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@use 'app/navbar/navbar-theme.component' as navbar;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$leagueapp-primary: mat.define-palette(mat.$green-palette);
+$leagueapp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$leagueapp-warn: mat.define-palette(mat.$red-palette);
+
+$leagueapp-backgrounds: mat.define-palette(mat.$teal-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$leagueapp-theme: mat.define-light-theme((
+  color: (
+    primary: $leagueapp-primary,
+    accent: $leagueapp-accent,
+    warn: $leagueapp-warn,
+    backgrounds: $leagueapp-backgrounds
+  )
+));
+// My palette: 0C120C C20114 6D7275 C7D6D5 D4AA7D
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($leagueapp-theme);
+@include navbar.color($leagueapp-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+  background-color: mat.get-color-from-palette($leagueapp-backgrounds, 50);
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
