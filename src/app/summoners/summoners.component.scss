@@ -1,0 +1,44 @@
+.summoner-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 20% 80%;
+}
+
+.summoner {
+  border: 1px solid black;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 20px;
+  row-gap: 0;
+  align-items: center;
+}
+
+.summoner-img {
+  padding: 1%;
+  box-sizing: border-box;
+  object-fit: cover;
+  width: auto;
+  max-height: 100%;
+  border: 1px solid blue;
+}
+
+.summoner-name {
+  font-size: max(4vh, 200%);
+  font-weight: 500;
+  margin: 0;
+}
+
+.summoner-level {
+  margin: 0;
+  font-size: max(2vh, 100%);
+  font-style: italic;
+}
+
+.matchhistory {
+  border: 1px solid black;
+  width: 100%;
+  overflow: scroll;
+}

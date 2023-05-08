@@ -1,0 +1,35 @@
+@import "src/styles";
+
+.header-logo {
+  float: left;
+  min-width: fit-content;
+}
+
+.navbar-wrapper {
+  display: flex;
+}
+.header-bar {
+  float: left;
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  height: 40px;
+  padding-left: 10px;
+  flex-wrap: nowrap;
+}
+
+.header-element {
+  font-weight: 500;
+  font-size: 18px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.header-element:hover {
+  cursor: pointer;
+}
+

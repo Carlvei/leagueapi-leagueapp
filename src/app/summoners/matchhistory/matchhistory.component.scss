@@ -1,0 +1,133 @@
+.matchhistory-entry {
+  border: 1px solid blue;
+  height: 20%;
+  display: grid;
+  grid-template-columns: 8% 15% 15% 20% 42%;
+  grid-template-rows: 100%;
+}
+
+.summoner-icons {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  grid-template-rows: 75% 25%;
+  padding: 8%;
+  justify-content: center;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.champion-icon {
+  height: 100%;
+  max-height: 100%;
+  grid-column-end: 4;
+  grid-column-start: 1;
+  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+}
+
+.spell {
+  grid-row-start: 2;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  object-fit: cover;
+  width: auto;
+}
+
+.summoner-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.kda {
+  font-size: max(3vh, 140%);
+  margin: 0;
+}
+
+.cs-and-kp {
+  font-style: italic;
+  margin: 0;
+}
+
+.summoner-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  position: relative;
+}
+
+.game-result {
+  margin: 0;
+  font-size: max(2.2vh, 120%);
+  font-weight: 500;
+}
+.game-data {
+  font-size:max(1.8vh, 100%);
+  margin: 0;
+}
+
+.game-duration {
+  font-size: max(1.6vh, 100%);
+  margin: 0;
+}
+
+.summoner-items {
+  display: grid;
+  height: 100%;
+  width: auto;
+  grid-template-rows: repeat(2, 48%);
+  grid-template-columns: repeat(4, 16%);
+  max-height: 100%;
+  padding: 5%;
+  justify-content: center;
+}
+
+.item-icon {
+  box-sizing: border-box;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.item-icon:nth-child(4) {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.item-icon:nth-child(5) {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.item-icon:nth-child(6) {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.item-icon:nth-child(7) {
+  grid-column-start: 4;
+  grid-row-start: 1;
+}
+
+.teams {
+  display: flex;
+
+}
+
+.teams blue {
+
+}
+
+.teams red {
+
+}

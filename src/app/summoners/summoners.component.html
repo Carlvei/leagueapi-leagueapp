@@ -1,0 +1,12 @@
+<div class="summoner-container">
+  <div *ngIf="summoner" class="summoner">
+    <img class="summoner-img" src="{{ this.summoner.profileIconUrl }}" alt="" height="300" width="300">
+    <div class="summoner-data">
+      <p class="summoner-name">{{this.summoner.name}}</p>
+      <p class="summoner-level">Level {{this.summoner.summonerLevel}}</p>
+    </div>
+  </div>
+  <div class="matchhistory">
+    <app-matchhistory *ngIf="summoner" summonerName="{{this.summoner.name}}"></app-matchhistory>
+  </div>
+</div>

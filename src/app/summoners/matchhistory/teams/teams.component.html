@@ -1,0 +1,16 @@
+<div class="teams-box">
+  <div class="teams-grid">
+    <div class="participant-blue" *ngFor="let participant of blueTeam ">
+      <div class="participant-data">{{participant.summonerName}}
+        <img class="participant-champion" src="{{participant.championIconUrl}}" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="teams-grid">
+    <div class="participant-red" *ngFor="let participant of redTeam ">
+      <div class="participant-data">
+        <img class="participant-champion" src="{{participant.championIconUrl}}" alt="">{{participant.summonerName}}
+      </div>
+    </div>
+  </div>
+</div>

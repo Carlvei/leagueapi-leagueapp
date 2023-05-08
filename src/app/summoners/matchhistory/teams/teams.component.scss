@@ -1,0 +1,39 @@
+.teams-box {
+  display: flex;
+  padding: 1%;
+  width: 100%;
+  max-height: 100%;
+
+}
+
+.teams-grid{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(5, 20%);
+  justify-content: center;
+}
+
+.participant-blue {
+  display: flex;
+  height: 100%;
+  margin:0;
+  justify-content: flex-end;
+}
+
+.participant-red {
+  height: 100%;
+  display: flex;
+  margin:0;
+}
+
+.participant-champion {
+  box-sizing: border-box;
+  object-fit: cover;
+  height: 100%;
+  max-height: 100%;
+}
+
+.participant-data {
+  margin: 0;
+  padding: 0;
+}
