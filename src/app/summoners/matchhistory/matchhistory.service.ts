@@ -11,7 +11,7 @@ export class MatchhistoryService {
   queryMatchhistory(name: string) {
     return this.http
       .get<MatchhistoryEntryOverview[]>(
-        'http://localhost:8080/matches',
+        'http://localhost:8080/api/gamedata/matches',
         {
           params: new HttpParams()
             .set('summonerName', name)

@@ -1,3 +1,7 @@
+.matchhistory-entry-wrapper {
+  height: 100%;
+}
+
 .matchhistory-entry {
   border: 1px solid blue;
   height: 20%;
@@ -130,4 +134,10 @@
 
 .teams red {
 
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
 }

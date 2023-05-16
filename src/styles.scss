@@ -13,13 +13,13 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$leagueapp-primary: mat.define-palette(mat.$green-palette);
+$leagueapp-primary: mat.define-palette(mat.$grey-palette);
 $leagueapp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $leagueapp-warn: mat.define-palette(mat.$red-palette);
 
-$leagueapp-backgrounds: mat.define-palette(mat.$teal-palette);
+$leagueapp-backgrounds: mat.define-palette(mat.$deep-orange-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".

@@ -11,15 +11,17 @@ import {ParticipantOverview} from "./model/participant-overview.model";
 export class MatchhistoryComponent implements OnInit {
   @Input() summonerName: string = '';
   matchhistoryEntries: MatchhistoryEntryOverview[] = [];
+  isLoading = false;
 
   constructor(private matchhistoryService: MatchhistoryService) {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.matchhistoryService.queryMatchhistory(this.summonerName)
       .subscribe((response) => {
         this.matchhistoryEntries = response
-        console.log(this.matchhistoryEntries)
+        this.isLoading = false;
       })
   }
 }

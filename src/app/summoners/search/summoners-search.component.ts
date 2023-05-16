@@ -15,7 +15,6 @@ export class SummonersSearchComponent {
   }
 
   onSearchSummoner() {
-    console.log('Event triggered: ' + this.summonerInput)
-    this.router.navigate([this.summonerInput], {relativeTo: this.route})
+    this.router.navigate(['overview'], {state: {name: this.summonerInput}, relativeTo: this.route})
   }
 }

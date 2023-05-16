@@ -1,0 +1,11 @@
+<div *ngIf="!isLoggedIn">
+  <p>Please enter your credentials to continue</p>
+  <input
+    type="text"
+    [(ngModel)]="username">
+
+  <input
+    type="text"
+    [(ngModel)]="password">
+  <button (click)="signUp()">Sign up</button>
+</div>

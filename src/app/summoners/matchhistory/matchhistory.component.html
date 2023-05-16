@@ -1,30 +1,35 @@
-<div class="matchhistory-entry" *ngFor="let entry of this.matchhistoryEntries">
-  <div class="summoner-icons">
-    <img class="champion-icon" src="{{entry.playerData.championIconUrl}}">
-    <img class="spell" src="{{entry.playerData.primaryRuneUrl}}">
-    <img class="spell" src="{{entry.playerData.summonerSpellFirstId}}">
-    <img class="spell" src="{{entry.playerData.summonerSpellSecondId}}">
+<div class="matchhistory-entry-wrapper" *ngIf="!isLoading">
+  <div class="matchhistory-entry" *ngFor="let entry of this.matchhistoryEntries">
+    <div class="summoner-icons">
+      <img class="champion-icon" src="{{entry.playerData.championIconUrl}}">
+      <img class="spell" src="{{entry.playerData.primaryRuneUrl}}">
+      <img class="spell" src="{{entry.playerData.summonerSpellFirstId}}">
+      <img class="spell" src="{{entry.playerData.summonerSpellSecondId}}">
+    </div>
+    <div class="summoner-data">
+      <p [ngStyle]="{'color': entry.playerData.win ? 'green' : 'red'}"
+         class="game-result">{{ entry.playerData.win === true ? 'WIN' : 'DEFEAT' }}</p>
+      <p class="game-data">{{ entry.gameMode }}</p>
+      <p class="game-data">{{ entry.gameCreation | date: 'dd.MM.yyyy, HH:mm:ss':''}}</p>
+      <p class="game-duration">{{ entry.gameDuration * 1000 | date: 'mm'}}m {{ entry.gameDuration * 1000 | date: 'ss'}}
+        s</p>
+    </div>
+    <div class="summoner-stats">
+      <p class="kda">
+        <span style="color: green">{{ entry.playerData.kills }}</span> /
+        <span style="color: red">{{ entry.playerData.deaths }}</span> /
+        <span style="color: darkgoldenrod">{{ entry.playerData.assists }}</span></p>
+      <p class="cs-and-kp">{{entry.playerData.totalMinionsKilled}}CS
+        - {{ entry.playerData.killParticipation * 100 | number: '0.0-0' }}% Kill Part.</p>
+    </div>
+    <div class="summoner-items">
+      <img *ngFor="let item of entry.playerData.items" class="item-icon" src="{{item.itemUrl}}">
+    </div>
+    <div class="teams">
+      <app-teams [participants]="entry.participants"></app-teams>
+    </div>
   </div>
-  <div class="summoner-data">
-    <p [ngStyle]="{'color': entry.playerData.win ? 'green' : 'red'}"
-       class="game-result">{{ entry.playerData.win === true ? 'WIN' : 'DEFEAT' }}</p>
-    <p class="game-data">{{ entry.gameMode }}</p>
-    <p class="game-data">{{ entry.gameCreation | date: 'dd.MM.yyyy, HH:mm:ss':''}}</p>
-    <p class="game-duration">{{ entry.gameDuration * 1000 | date: 'mm'}}m {{ entry.gameDuration * 1000 | date: 'ss'}}
-      s</p>
-  </div>
-  <div class="summoner-stats">
-    <p class="kda">
-      <span style="color: green">{{ entry.playerData.kills }}</span> /
-      <span style="color: red">{{ entry.playerData.deaths }}</span> /
-      <span style="color: darkgoldenrod">{{ entry.playerData.assists }}</span></p>
-    <p class="cs-and-kp">{{entry.playerData.totalMinionsKilled}}CS
-      - {{ entry.playerData.killParticipation * 100 | number: '0.0-0' }}% Kill Part.</p>
-  </div>
-  <div class="summoner-items">
-    <img *ngFor="let item of entry.playerData.items" class="item-icon" src="{{item.itemUrl}}">
-  </div>
-  <div class="teams">
-    <app-teams [participants]="entry.participants"></app-teams>
-  </div>
+</div>
+<div *ngIf="isLoading" class="loading-spinner">
+  <app-loading-spinner></app-loading-spinner>
 </div>
