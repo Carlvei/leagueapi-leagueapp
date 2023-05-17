@@ -1,16 +1,19 @@
 .custom-navbar {
-  max-height: 10%;
+  height: 50px;
+  width: 100%;
+}
+
+.content-wrapper {
+  box-shadow: inset 5px 13px 35px 0 rgba(0,0,0,0.75);
+  width: 100%;
+  height: calc(100vh - 50px);
+  position: relative;
 }
 
 .content {
-  position: relative;
-  width: 90vw;
-  height: 90vh;
-  min-width: 115rem;
-  min-height: 60rem;
-
-  top: 11%;
-  left: 5%;
-  bottom: 8%;
-  right: 8%;
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  height: 100%;
+  width: 100%
 }

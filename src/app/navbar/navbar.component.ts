@@ -31,8 +31,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.userSub = this.authservice.user.subscribe(user => {
       if(!user) {
         this.tabs[0].label = 'Login'
+        this.tabs[0].routeDestination = '/login'
       } else {
         this.tabs[0].label = user.userName
+        this.tabs[0].routeDestination = '/loggedInUser/matchhistory'
       }
       this.isAuthenticated = !!user;
     });

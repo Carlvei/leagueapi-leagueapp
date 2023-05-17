@@ -1,14 +1,22 @@
-<div>
-  <p>Please log in to continue</p>
-  <input
-    type="text"
-    [(ngModel)]="username">
-
-  <input
-    type="text"
-    [(ngModel)]="password">
-  <button (click)="login()">Login</button>
-  <button (click)="onSignUpClick()">Sign up</button>
+<div class="login-container">
+  <div class="login-form-container">
+    <form (ngSubmit)="login()" #form="ngForm" class="login-form">
+      <p class="login-text">Login</p>
+      <input
+        class="login-input"
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="username">
+      <input
+        class="login-input"
+        type="text"
+        placeholder="Password"
+        [(ngModel)]="password">
+      <button class="login-button" type="submit">Login</button>
+    </form>
+    <button (click)="onSignUpClick()">Sign up</button>
+  </div>
+  <img class="title-img" src="../../assets/titlescreen.jpg" alt="">
 </div>
 
 

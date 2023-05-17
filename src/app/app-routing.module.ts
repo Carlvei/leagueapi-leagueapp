@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'login/myself/:summoner', component: SummonersComponent},
   {path: 'login/signup', component: SignupComponent},
-  {path: 'loggedInUser/matchhistory', component: SummonersComponent, canActivate: [canActivateRoute]}
+  {path: 'loggedInUser/matchhistory', component: SummonersComponent, canActivate: [canActivateRoute]},
+  {path: '**', redirectTo: '/summoners'}
 ];
 
 @NgModule({

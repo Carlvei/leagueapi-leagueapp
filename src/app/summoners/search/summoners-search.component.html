@@ -1,11 +1,13 @@
-<p class="welcome-text">Welcome to the Summoner search</p>
+<div class="search-wrapper">
+  <p class="welcome-text">Welcome to the Summoner search</p>
 
-<div class="searchbar">
-  <input
-    type="text"
-    class="summoner-input"
-    placeholder="Search for summoner ..."
-    [(ngModel)]="summonerInput">
+  <div class="searchbar">
+    <input
+      type="text"
+      class="summoner-input"
+      placeholder="Summonername ..."
+      [(ngModel)]="summonerInput">
 
-  <button class="search-button" (click)="onSearchSummoner()">Search</button>
+    <button class="search-button" (click)="onSearchSummoner()">GO!</button>
+  </div>
 </div>
