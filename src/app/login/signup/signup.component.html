@@ -1,11 +1,31 @@
-<div *ngIf="!isLoggedIn">
-  <p>Please enter your credentials to continue</p>
+<form (ngSubmit)="signUp(form)" #form="ngForm" class="signup-form">
+  <p class="signup-text">Signup</p>
+  <div>
+    <input
+      class="signup-input"
+      type="text"
+      placeholder="Username"
+      name="username"
+      ngModel
+      appUsernameRiotAccount
+      #username="ngModel">
+    <p class="neutral-help-block" *ngIf="username.errors?.['usernameNotARiotAccount'] && username.touched">Username is
+      not associated with a riot account</p>
+  </div>
   <input
+    class="signup-input"
     type="text"
-    [(ngModel)]="username">
-
-  <input
-    type="text"
-    [(ngModel)]="password">
-  <button (click)="signUp()">Sign up</button>
-</div>
+    placeholder="Password"
+    name="password"
+    ngModel
+    required
+    appPasswordValidator
+    #password="ngModel">
+  <p class="warning-help-block"
+     *ngIf="password.errors?.['required'] && password.touched">Please enter a valid password!</p>
+  <p class="warning-help-block"
+     *ngIf="password.errors?.['invalidPassword'] && password.touched">Password must be at least 8 characters long and must contain at least one of the following characters: Lowercase, Uppercase, number</p>
+  <button class="signup-button" type="submit">Sign up</button>
+  <p class="alreadyhaveanaccounttext">Already have an account? - <a class="login-route-text"
+                                                                    routerLink="/login">Login</a></p>
+</form>

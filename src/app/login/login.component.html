@@ -1,23 +1,26 @@
-<div class="login-container">
-  <div class="login-form-container">
-    <form (ngSubmit)="login()" #form="ngForm" class="login-form">
-      <p class="login-text">Login</p>
-      <input
-        class="login-input"
-        type="text"
-        placeholder="Username"
-        [(ngModel)]="username">
-      <input
-        class="login-input"
-        type="text"
-        placeholder="Password"
-        [(ngModel)]="password">
-      <button class="login-button" type="submit">Login</button>
-    </form>
-    <button (click)="onSignUpClick()">Sign up</button>
+<form (ngSubmit)="login(form)" #form="ngForm" class="login-form">
+  <p class="login-text">Login</p>
+  <div class="input-block">
+    <input
+      class="login-input"
+      type="text"
+      placeholder="Username"
+      name="username"
+      required>
   </div>
-  <img class="title-img" src="../../assets/titlescreen.jpg" alt="">
-</div>
+  <div class="input-block">
+    <input
+      class="login-input"
+      type="text"
+      placeholder="Password"
+      name="password"
+      required>
+  </div>
+  <button class="login-button" type="submit">Login</button>
+  <p class="donthaveanaccounttext">Don't have an account? - <a class="signupheretext" routerLink="/login/signup">Sign up
+    here</a></p>
+</form>
+
 
 
 

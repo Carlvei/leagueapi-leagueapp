@@ -1,24 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
 
-.login-container {
-  margin: 1%;
-  margin-left: 2%;
-
-  display: grid;
-  width: 1800px;
-  height: 900px;
-
-  grid-template-columns: 20% 80%;
-  grid-template-rows: 100%;
-  box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.75);
-}
-
-.login-form-container {
-  padding: 7%;
-  width: 100%;
-  height: 100%;
-}
-
 .login-form {
   display: flex;
   flex-direction: column;
@@ -37,18 +18,12 @@
   height: 50px;
   border-width: 3px;
   border-radius: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
-
 
 .login-input::content {
   padding-left: 25px;
-  font-size: 2rem;
-}
-
-.title-img {
-  height: 100%;
-  object-fit: cover;
+  font-size: 140%;
 }
 
 .login-button {
@@ -58,7 +33,14 @@
   border-radius: 25px;
   box-shadow: 10px 10px 32px 0 #000000;
   font-weight: 700;
-  font-size: 200%;
+  font-size: 175%;
   align-self: flex-end;
-
 }
+
+.donthaveanaccounttext {
+  margin-top: 10%;
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.5rem;
+}
+
+

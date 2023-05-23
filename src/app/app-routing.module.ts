@@ -6,13 +6,15 @@ import {AppComponent} from "./app.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./login/signup/signup.component";
 import {canActivateRoute} from "./login/auth.service";
+import {LoginWrapperComponent} from "./login/login-wrapper/login-wrapper.component";
 
 const routes: Routes = [
   {path: 'summoners', component: SummonersSearchComponent},
   {path: 'summoners/overview', component: SummonersComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginWrapperComponent, children: [
+      {path: 'signup', component: SignupComponent}
+    ]},
   {path: 'login/myself/:summoner', component: SummonersComponent},
-  {path: 'login/signup', component: SignupComponent},
   {path: 'loggedInUser/matchhistory', component: SummonersComponent, canActivate: [canActivateRoute]},
   {path: '**', redirectTo: '/summoners'}
 ];

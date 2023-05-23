@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from "./auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {take} from "rxjs";
 import {User} from "./user.model";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,6 @@ import {User} from "./user.model";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username = '';
-  password = '';
   isLoggedIn = false;
 
   constructor(private authservice: AuthService,
@@ -25,8 +24,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login() {
-    this.authservice.login(this.username, this.password)
+  login(form: NgForm) {
+    console.log(form)
+    this.authservice.login(form.value.username, form.value.password)
       .subscribe((response) => {
         this.isLoggedIn = true
         this.router.navigate(["/loggedInUser/matchhistory"], {state: {name: this.authservice.getLoggedInUsername()}})

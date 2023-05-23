@@ -7,18 +7,10 @@
   $primary-palette: map.get($color-config, 'primary');
 
   $accent-palette: map.get($color-config, 'accent');
+  $warn-palette: map.get($color-config, 'warn');
 
-  .login-form-container {
-    background-color: mat.get-color-from-palette($accent-palette, 500);
-  }
-
-  .login-text {
+  .signup-text {
     color: mat.get-color-from-palette($accent-palette, 500-contrast);
-  }
-
-  .login-button {
-    background-color: mat.get-color-from-palette($primary-palette, 500);
-    color: mat.get-color-from-palette($accent-palette, 700);
   }
 
   .signup-button {
@@ -26,16 +18,21 @@
     color: mat.get-color-from-palette($accent-palette, 700);
   }
 
-  .donthaveanaccounttext {
+  .alreadyhaveanaccounttext {
     color: mat.get-color-from-palette($accent-palette, 500-contrast);
   }
 
-  .signupheretext {
+  .login-route-text {
     color: mat.get-color-from-palette($primary-palette, 900)
-  }
 
-  .signupheretext:hover {
+  }
+  .login-route-text:hover {
     color: mat.get-color-from-palette($primary-palette, 900-contrast);
     cursor: pointer;
   }
+
+  .warning-help-block {
+    color: mat.get-color-from-palette($warn-palette, 400);
+  }
+
 }
