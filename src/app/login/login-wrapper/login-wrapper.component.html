@@ -1,0 +1,7 @@
+<div class="login-container">
+  <div class="login-form-container">
+    <app-login *ngIf="!isSignUpRoute()"></app-login>
+    <router-outlet *ngIf="isSignUpRoute()"></router-outlet>
+  </div>
+  <img class="title-img" src="../../assets/titlescreen.jpg" alt="">
+</div>
