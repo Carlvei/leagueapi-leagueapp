@@ -35,4 +35,8 @@
     color: mat.get-color-from-palette($warn-palette, 400);
   }
 
+  .signup-required-input.ng-invalid.ng-touched {
+    border-color: mat.get-color-from-palette($warn-palette, 400);;
+  }
+
 }

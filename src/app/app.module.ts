@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavbarComponent} from './navbar/navbar.component';
 import {MatTabNav, MatTabsModule} from "@angular/material/tabs";
 import {SummonersComponent} from './summoners/summoners.component';
-import {FormsModule, NG_VALIDATORS, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SummonersSearchComponent} from './summoners/search/summoners-search.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -24,7 +24,8 @@ import {AuthInterceptorService} from "./login/auth-interceptor.service";
 import {LoadingSpinnerComponent} from "./shared/loading-spinners/loading-spinner.component";
 import {LoginWrapperComponent} from './login/login-wrapper/login-wrapper.component';
 import {UsernameRiotAccountDirective} from './directives/username-riot-account.directive';
-import { PasswordValidatorDirective } from './directives/password-validator.directive';
+import {PasswordValidatorDirective} from './directives/password-validator.directive';
+import {PasswordMatcherDirective} from './directives/password-matcher.directive';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PasswordValidatorDirective } from './directives/password-validator.dire
     LoadingSpinnerComponent,
     LoginWrapperComponent,
     UsernameRiotAccountDirective,
-    PasswordValidatorDirective
+    PasswordValidatorDirective,
+    PasswordMatcherDirective
   ],
   imports: [
     BrowserModule,

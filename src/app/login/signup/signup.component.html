@@ -1,4 +1,5 @@
-<form (ngSubmit)="signUp(form)" #form="ngForm" class="signup-form">
+<form (ngSubmit)="signUp(form)" #form="ngForm" class="signup-form" appPasswordMatcher
+      [appMatchPassword]="[password.value, passwordConfirmation.value]">
   <p class="signup-text">Signup</p>
   <div>
     <input
@@ -12,20 +13,49 @@
     <p class="neutral-help-block" *ngIf="username.errors?.['usernameNotARiotAccount'] && username.touched">Username is
       not associated with a riot account</p>
   </div>
-  <input
-    class="signup-input"
-    type="text"
-    placeholder="Password"
-    name="password"
-    ngModel
-    required
-    appPasswordValidator
-    #password="ngModel">
-  <p class="warning-help-block"
-     *ngIf="password.errors?.['required'] && password.touched">Please enter a valid password!</p>
-  <p class="warning-help-block"
-     *ngIf="password.errors?.['invalidPassword'] && password.touched">Password must be at least 8 characters long and must contain at least one of the following characters: Lowercase, Uppercase, number</p>
-  <button class="signup-button" type="submit">Sign up</button>
+  <div id="requiredInputsGroup" ngModelGroup="requiredInputsGroup" #requiredInputsGroup="ngModelGroup">
+    <input
+      class="signup-required-input"
+      type="text"
+      placeholder="Email"
+      name="email"
+      ngModel
+      required
+      email
+      #email="ngModel">
+    <p class="warning-help-block"
+       *ngIf="email.errors?.['required'] && email.touched">Please enter a valid email address</p>
+    <p class="warning-help-block"
+       *ngIf="email.errors?.['email'] && email.touched">Email address is not valid</p>
+    <input
+      class="signup-required-input"
+      type="text"
+      placeholder="Password"
+      name="password"
+      ngModel
+      required
+      appPasswordValidator
+      #password="ngModel">
+    <p class="warning-help-block"
+       *ngIf="password.errors?.['required'] && password.touched">Please enter a valid password</p>
+    <p class="warning-help-block"
+       *ngIf="password.errors?.['invalidPassword'] && password.touched">Password must be at least 8 characters long and
+      must contain at least one of the following characters: Lowercase, Uppercase, number</p>
+    <input
+      class="signup-required-input"
+      type="text"
+      placeholder="Confirm password "
+      name="passwordConfirmation"
+      ngModel
+      required
+      appPasswordValidator
+      #passwordConfirmation="ngModel">
+    <p class="warning-help-block"
+       *ngIf="passwordConfirmation.errors?.['required'] && password.touched">Please confirm your password</p>
+    <p class="warning-help-block"
+       *ngIf="passwordConfirmation.errors?.['passwordMismatch'] && password.touched">Entered passwords don't match</p>
+  </div>
+  <button class="signup-button" type="submit" [disabled]="!requiredInputsGroup.valid">Sign up</button>
   <p class="alreadyhaveanaccounttext">Already have an account? - <a class="login-route-text"
                                                                     routerLink="/login">Login</a></p>
 </form>
