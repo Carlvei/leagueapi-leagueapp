@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -26,6 +26,7 @@ import {LoginWrapperComponent} from './login/login-wrapper/login-wrapper.compone
 import {UsernameRiotAccountDirective} from './directives/username-riot-account/username-riot-account.directive';
 import {PasswordValidatorDirective} from './directives/password-validator/password-validator.directive';
 import {PasswordMatcherDirective} from './directives/password-matcher/password-matcher.directive';
+import {AppConfigService} from "./config/app-config.service";
 
 @NgModule({
   declarations: [
@@ -62,6 +63,16 @@ import {PasswordMatcherDirective} from './directives/password-matcher/password-m
     AuthService,
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AppConfigService],
+      useFactory: (appConfigService: AppConfigService) => {
+        return () => {
+          return appConfigService.loadAppConfig();
+        };
+      }
     }
   ],
   bootstrap: [AppComponent]

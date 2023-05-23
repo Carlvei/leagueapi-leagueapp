@@ -1,57 +1,49 @@
 import {HttpClient} from "@angular/common/http";
 import {inject, Injectable} from "@angular/core";
-import {Tokenpair} from "./models/tokenpair.model";
 import {User} from "./models/user.model";
-import {SignupResponseDto} from "./signup/signupResponseDto.model";
+import {SignupResponse} from "./models/signup-response.model";
 import {ReplaySubject, take, tap} from "rxjs";
 import {CookieService} from "ngx-cookie";
 import {ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot} from "@angular/router";
+import {AppConfigService} from "../config/app-config.service";
+import {LoginRequest} from "./models/login-request.model";
+import {LoginResponse} from "./models/login-response.model";
+import {SignupRequest} from "./models/signup-request.model";
 
 @Injectable()
 export class AuthService {
   user = new ReplaySubject<User>();
 
 
-
   constructor(private http: HttpClient,
-              private cookieService: CookieService) {
+              private cookieService: CookieService,
+              private config: AppConfigService) {
   }
 
-  login(username: string, password: string) {
+  login(loginRequest: LoginRequest) {
+    console.log(loginRequest)
     return this.http
-      .request<Tokenpair>("post", "http://localhost:8080/api/auth/authentication/authenticate",
-        {
-          body:
-            {
-              userName: username,
-              password: password
-            }
-        })
+      .post<LoginResponse>(this.config.loginUrl, loginRequest)
       .pipe(
         tap(response =>
-          this.handleAuthentication(response, username)
+          this.handleAuthentication(response, loginRequest.email)
         )
       );
   }
 
-  signUp(username: string, password: string) {
+  signUp(signUpRequest: SignupRequest) {
     return this.http
-      .post<SignupResponseDto>("http://localhost:8080/api/auth/authentication/signup",
-        {
-          userName: username,
-          password: password
-        })
+      .post<SignupResponse>(this.config.signUpUrl, signUpRequest)
   }
 
-  private handleAuthentication(response: Tokenpair, username: string) {
-    const user = new User(username, response.accessToken, this.currentDatePlusFiveMinutes())
-    if(user.token != null) {
-      console.log('token is set')
-      this.cookieService.put("leagueapi_access_token", user.token)
-      console.log(user.token)
+  private handleAuthentication(response: LoginResponse, username: string) {
+    const user = new User(response.username, response.email, response.tokenPair.accessToken, this.currentDatePlusFiveMinutes())
+    if (user.token != null) {
+      this.cookieService.put(this.config.accessTokenCookieName, user.token)
     }
     this.user.next(user);
   }
+
   private currentDatePlusFiveMinutes() {
     return new Date(new Date().getTime() + 5 * 60 * 1000)
   }
@@ -61,9 +53,10 @@ export class AuthService {
     this.user.pipe(
       take(1)
     ).subscribe(user => {
-      if (user) {
-        loggedIn = true
-      }}
+        if (user) {
+          loggedIn = true
+        }
+      }
     )
     return loggedIn;
   }
@@ -73,9 +66,10 @@ export class AuthService {
     this.user.pipe(
       take(1)
     ).subscribe(user => {
-      if (user) {
-        name = user.userName
-      }}
+        if (user) {
+          name = user.username
+        }
+      }
     )
     return name;
   }
@@ -83,7 +77,7 @@ export class AuthService {
 
 export const canActivateRoute: CanActivateFn =
   (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-    if(inject(AuthService).isUserLoggedIn()) {
+    if (inject(AuthService).isUserLoggedIn()) {
       return true;
     } else {
       inject(Router).navigate(['/login']);

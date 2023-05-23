@@ -1,0 +1,14 @@
+{
+  "apiBaseUrl": "http://localhost:8080",
+  "gamedataServiceBaseUrl": "/api/gamedata",
+  "authServiceBaseUrl": "/api/auth",
+  "summoners": {
+    "summonersEndpoint": "/summoners",
+    "matchhistoryEndpoint": "/matches"
+  },
+  "authentication": {
+    "loginEndpoint": "/authentication/authenticate",
+    "signUpEndpoint": "/authentication/signup",
+    "accessTokenCookieName": "leagueapi_access_token"
+  }
+}

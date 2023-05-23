@@ -3,16 +3,19 @@ import {HttpClient} from "@angular/common/http";
 import {Summoner} from "./models/summoner.model";
 import {AuthService} from "../login/auth.service";
 import {exhaustMap, take} from "rxjs";
+import {AppConfigService} from "../config/app-config.service";
 
 @Injectable()
 export class SummonersService {
   constructor(private authservice: AuthService,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private config: AppConfigService) {
   }
 
   querySummoner(name: string) {
+    console.log(this.config.summonersUrl)
     return this.http
-      .get<Summoner>('http://localhost:8080/api/gamedata/summoners',
+      .get<Summoner>(this.config.summonersUrl,
         {
           params: {
             summonerName: name
@@ -21,13 +24,19 @@ export class SummonersService {
   }
 
   queryLoggedInSummoner() {
-    // exhaustMap wartet auf den ersten Observable, nimmt den output und verwendet ihn für einen zweiten observable welcher dann returend wird
-    return this.authservice.user.pipe(take(1), exhaustMap(user => {
-        // @ts-ignore
-      return this.http
-          .get<Summoner>('http://localhost:8080/summoners/' + user.userName);
-
-    })) // das sagt  basicly dass aus dem subject ein wert rauskommen soll
-    // und dann gleich unsubscribed werden soll
+    return this.authservice.user.pipe(
+      take(1),
+      exhaustMap(user => {
+          return this.http
+            .get<Summoner>(this.config.summonersUrl,
+              {
+                params: {
+                  summonerName: user.username
+                }
+              }
+            );
+        }
+      )
+    )
   }
 }

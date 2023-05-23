@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, Observer, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {AuthService} from "../login/auth.service";
 
@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.tabs[0].label = 'Login'
         this.tabs[0].routeDestination = '/login'
       } else {
-        this.tabs[0].label = user.userName
+        this.tabs[0].label = user.username
         this.tabs[0].routeDestination = '/loggedInUser/matchhistory'
       }
       this.isAuthenticated = !!user;

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
+import {LoginRequest} from "../models/login-request.model";
 
 @Component({
   selector: 'app-login',
@@ -18,22 +19,30 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authservice.isUserLoggedIn()) {
-      this.router.navigate(["/loggedInUser/matchhistory"], {state: {name: this.authservice.getLoggedInUsername()}})
+      this.router.navigate(["/loggedInUser/matchhistory"], {
+          state: {
+            name: this.authservice.getLoggedInUsername()
+          }
+        }
+      )
     }
   }
 
   login(form: NgForm) {
-    console.log(form)
-    this.authservice.login(form.value.username, form.value.password)
+    this.authservice.login(new LoginRequest(form.value.email, form.value.password))
       .subscribe((response) => {
-        this.isLoggedIn = true
-        this.router.navigate(["/loggedInUser/matchhistory"], {state: {name: this.authservice.getLoggedInUsername()}})
-      })
+          this.isLoggedIn = true
+          this.router.navigate(["/loggedInUser/matchhistory"], {
+              state: {
+                name: this.authservice.getLoggedInUsername()
+              }
+            }
+          )
+        }
+      )
   }
 
   onSignUpClick() {
     this.router.navigate(["signup"], {relativeTo: this.route})
   }
-
-
 }

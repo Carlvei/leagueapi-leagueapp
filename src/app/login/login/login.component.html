@@ -4,9 +4,10 @@
     <input
       class="login-input"
       type="text"
-      placeholder="Username"
-      name="username"
-      required>
+      placeholder="Email"
+      name="email"
+      required
+      ngModel>
   </div>
   <div class="input-block">
     <input
@@ -14,7 +15,8 @@
       type="text"
       placeholder="Password"
       name="password"
-      required>
+      required
+      ngModel>
   </div>
   <button class="login-button" type="submit">Login</button>
   <p class="donthaveanaccounttext">Don't have an account? - <a class="signupheretext" routerLink="/login/signup">Sign up

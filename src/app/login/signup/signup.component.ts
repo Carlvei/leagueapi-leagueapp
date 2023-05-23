@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
+import {SignupRequest} from "../models/signup-request.model";
 
 @Component({
   selector: 'app-signup',
@@ -10,8 +11,6 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  username = '';
-  password = '';
   isLoggedIn = false;
 
   constructor(private http: HttpClient,
@@ -27,7 +26,7 @@ export class SignupComponent implements OnInit {
 
   signUp(form: NgForm) {
     console.log(form)
-    this.authservice.signUp(this.username, this.password)
+    this.authservice.signUp(new SignupRequest(form.value.username, form.value.requiredInputsGroup.email, form.value.requiredInputsGroup.password))
       .subscribe((response) => {
           this.router.navigate(["/loggedInUser/matchhistory"], {
               state: {
@@ -37,6 +36,5 @@ export class SignupComponent implements OnInit {
           )
         }
       )
-
   }
 }
