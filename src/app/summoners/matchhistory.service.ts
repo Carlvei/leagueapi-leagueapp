@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {MatchhistoryEntryOverview} from "./model/matchhistory-entry-overview.model";
+import {MatchhistoryEntryOverview} from "./matchhistory/model/matchhistory-entry-overview.model";
 
 @Injectable()
 export class MatchhistoryService {

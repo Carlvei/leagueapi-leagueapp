@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpClientModule, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
-import {SummonersService} from "./summoners.service";
-import {Summoner} from "./search/summoner.model";
-import {Location} from "@angular/common";
+import {SummonersService} from "../summoners.service";
+import {Summoner} from "../models/summoner.model";
 import {map} from "rxjs";
 
 @Component({

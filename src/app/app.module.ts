@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavbarComponent} from './navbar/navbar.component';
 import {MatTabNav, MatTabsModule} from "@angular/material/tabs";
-import {SummonersComponent} from './summoners/summoners.component';
+import {SummonersComponent} from './summoners/summoners/summoners.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SummonersSearchComponent} from './summoners/search/summoners-search.component';
@@ -14,18 +14,18 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {SummonersService} from "./summoners/summoners.service";
 import {MatchhistoryComponent} from './summoners/matchhistory/matchhistory.component';
-import {MatchhistoryService} from "./summoners/matchhistory/matchhistory.service";
+import {MatchhistoryService} from "./summoners/matchhistory.service";
 import {TeamsComponent} from './summoners/matchhistory/teams/teams.component';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './login/login/login.component';
 import {AuthService} from "./login/auth.service";
 import {SignupComponent} from './login/signup/signup.component';
 import {CookieModule} from "ngx-cookie";
 import {AuthInterceptorService} from "./login/auth-interceptor.service";
 import {LoadingSpinnerComponent} from "./shared/loading-spinners/loading-spinner.component";
 import {LoginWrapperComponent} from './login/login-wrapper/login-wrapper.component';
-import {UsernameRiotAccountDirective} from './directives/username-riot-account.directive';
-import {PasswordValidatorDirective} from './directives/password-validator.directive';
-import {PasswordMatcherDirective} from './directives/password-matcher.directive';
+import {UsernameRiotAccountDirective} from './directives/username-riot-account/username-riot-account.directive';
+import {PasswordValidatorDirective} from './directives/password-validator/password-validator.directive';
+import {PasswordMatcherDirective} from './directives/password-matcher/password-matcher.directive';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MatchhistoryService} from "./matchhistory.service";
+import {MatchhistoryService} from "../matchhistory.service";
 import {MatchhistoryEntryOverview} from "./model/matchhistory-entry-overview.model";
-import {ParticipantOverview} from "./model/participant-overview.model";
 
 @Component({
   selector: 'app-matchhistory',

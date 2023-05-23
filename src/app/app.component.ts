@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import {SummonersComponent} from "./summoners/summoners.component";
-import {SummonersService} from "./summoners/summoners.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',

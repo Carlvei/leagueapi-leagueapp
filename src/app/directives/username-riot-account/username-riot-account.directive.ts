@@ -1,6 +1,6 @@
 import {Directive} from '@angular/core';
 import {AbstractControl, AsyncValidator, NG_ASYNC_VALIDATORS, ValidationErrors} from "@angular/forms";
-import {SummonersService} from "../summoners/summoners.service";
+import {SummonersService} from "../../summoners/summoners.service";
 import {Observable} from "rxjs";
 
 

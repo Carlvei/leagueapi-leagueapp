@@ -1,8 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {exhaustMap, Observable, pipe, take} from "rxjs";
+import {Observable} from "rxjs";
 import {AuthService} from "./auth.service";
-import {Summoner} from "../summoners/search/summoner.model";
 import {CookieService} from "ngx-cookie";
 
 @Injectable()

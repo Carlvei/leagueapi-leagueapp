@@ -3,7 +3,7 @@
 @use '@angular/material' as mat;
 @use 'app/navbar/navbar-theme.component' as navbar;
 @use 'app/summoners/search/searchbar-theme.component' as searchbar;
-@use 'src/app/login/login-theme.component' as login;
+@use 'src/app/login/login/login-theme.component' as login;
 @use 'src/app/login/login-wrapper/login-wrapper-theme.component' as login-wrapper;
 @use 'src/app/login/signup/signup-theme.component' as signup;
 

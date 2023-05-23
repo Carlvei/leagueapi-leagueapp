@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Summoner} from "./search/summoner.model";
+import {Summoner} from "./models/summoner.model";
 import {AuthService} from "../login/auth.service";
 import {exhaustMap, take} from "rxjs";
 

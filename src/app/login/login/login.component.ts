@@ -1,8 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {AuthService} from "./auth.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {take} from "rxjs";
-import {User} from "./user.model";
 import {NgForm} from "@angular/forms";
 
 @Component({

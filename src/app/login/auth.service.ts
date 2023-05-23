@@ -1,9 +1,9 @@
 import {HttpClient} from "@angular/common/http";
 import {inject, Injectable} from "@angular/core";
-import {Tokenpair} from "./tokenpair.model";
-import {User} from "./user.model";
+import {Tokenpair} from "./models/tokenpair.model";
+import {User} from "./models/user.model";
 import {SignupResponseDto} from "./signup/signupResponseDto.model";
-import {BehaviorSubject, ReplaySubject, take, tap} from "rxjs";
+import {ReplaySubject, take, tap} from "rxjs";
 import {CookieService} from "ngx-cookie";
 import {ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot} from "@angular/router";
 
