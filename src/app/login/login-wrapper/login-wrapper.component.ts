@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -12,7 +12,7 @@ export class LoginWrapperComponent {
 
   }
 
-  isSignUpRoute() {
+  public isSignUpRoute(): boolean {
     return this.router.url === '/login/signup';
   }
 }

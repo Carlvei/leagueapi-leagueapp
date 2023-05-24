@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
 
+// Here you could potentially nest the SCSS code within each other. @Anes
+// For example the first two classes 
+
+/**
+   .login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .login-text {
+    font-weight: 500;
+    font-size: 4rem;
+    font-family: 'Kanit', sans-serif;
+  }
+   */
+
+
+
 .login-form {
   display: flex;
   flex-direction: column;

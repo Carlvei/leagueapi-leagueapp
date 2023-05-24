@@ -1,4 +1,4 @@
-import {Directive} from '@angular/core';
+import {Directive} from "@angular/core";
 import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from "@angular/forms";
 
 @Directive({
@@ -14,7 +14,7 @@ export class PasswordValidatorDirective implements Validator {
   constructor() {
   }
 
-  validate(control: AbstractControl): ValidationErrors | null {
+  public validate(control: AbstractControl): ValidationErrors | null {
     if (!control.value) {
       return null;
     }

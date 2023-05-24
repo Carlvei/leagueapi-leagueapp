@@ -2,71 +2,106 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 
+// Den
+interface AppConfig {
+  apiBaseUrl: string;
+  gamedataServiceBaseUrl: string;
+  authServiceBaseUrl: string;
+  summoners: SummonersConfig;
+  authentication: AuthenticationConfig;
+}
+
+interface SummonersConfig {
+  summonersEndpoint: string;
+  matchhistoryEndpoint: string;
+}
+
+interface AuthenticationConfig {
+  loginEndpoint: string;
+  signUpEndpoint: string;
+  accessTokenCookieName: string;
+}
 /**
  Yes I know you shouldn't code with comments but for know this is a solution that helps me find my stuff.
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppConfigService {
-  private appConfig: any;
+  private appConfig!: AppConfig;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
-  loadAppConfig() {
-    return firstValueFrom(this.http.get('/assets/config/appconfig.json'))
-      .then(data => {
-        this.appConfig = data
-      })
+  public loadAppConfig(): Promise<void> {
+    return firstValueFrom(
+      this.http.get<AppConfig>('/assets/config/appconfig.json')
+    ).then((data) => {
+      this.appConfig = data;
+    });
   }
 
   /**
    * Base configs
    */
-  get apiBaseUrl() {
+  public get apiBaseUrl(): string {
     return this.appConfig.apiBaseUrl;
   }
 
-  get gamedataServiceBaseUrl() {
+  public get gamedataServiceBaseUrl(): string {
     return this.appConfig.gamedataServiceBaseUrl;
   }
 
-  get authServiceBaseUrl() {
+  public get authServiceBaseUrl(): string {
     return this.appConfig.authServiceBaseUrl;
   }
 
   /**
    * Summoner configs
    */
-  get summonersConfig() {
-    return this.appConfig.summoners
+  public get summonersConfig(): SummonersConfig {
+    return this.appConfig.summoners;
   }
 
-  get summonersUrl() {
-    return this.apiBaseUrl + this.gamedataServiceBaseUrl + this.summonersConfig.summonersEndpoint
+  public get summonersUrl(): string {
+    return (
+      this.apiBaseUrl +
+      this.gamedataServiceBaseUrl +
+      this.summonersConfig.summonersEndpoint
+    );
   }
 
-  get matchhistoryUrl() {
-    return this.apiBaseUrl + this.gamedataServiceBaseUrl + this.summonersConfig.matchhistoryEndpoint
+  public get matchhistoryUrl(): string {
+    return (
+      this.apiBaseUrl +
+      this.gamedataServiceBaseUrl +
+      this.summonersConfig.matchhistoryEndpoint
+    );
   }
 
   /**
    * Auth configs
    */
-  get authenticationConfig() {
-    return this.appConfig.authentication
+  public get authenticationConfig(): AuthenticationConfig {
+    return this.appConfig.authentication;
   }
 
-  get loginUrl() {
-    return this.apiBaseUrl + this.authServiceBaseUrl + this.authenticationConfig.loginEndpoint
+  public get loginUrl(): string {
+    return (
+      this.apiBaseUrl +
+      this.authServiceBaseUrl +
+      this.authenticationConfig.loginEndpoint
+    );
   }
 
-  get signUpUrl() {
-    return this.apiBaseUrl + this.authServiceBaseUrl + this.authenticationConfig.signUpEndpoint
+  public get signUpUrl(): string {
+    return (
+      this.apiBaseUrl +
+      this.authServiceBaseUrl +
+      this.authenticationConfig.signUpEndpoint
+    );
   }
 
-  get accessTokenCookieName() {
-    return this.authenticationConfig.accessTokenCookieName
+  public get accessTokenCookieName(): string {
+    return this.authenticationConfig.accessTokenCookieName;
   }
 }

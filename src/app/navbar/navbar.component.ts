@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {AuthService} from "../login/auth.service";
@@ -14,7 +14,7 @@ export interface ExampleTab {
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  isAuthenticated = false;
+  public isAuthenticated = false;
   private userSub: Subscription | undefined;
 
   tabs = [
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
               private authservice: AuthService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.userSub = this.authservice.user.subscribe(user => {
       if(!user) {
         this.tabs[0].label = 'Login'
@@ -41,11 +41,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     console.log('On init triggered. Is authenticated = ' + this.isAuthenticated)
   }
 
-  onClickRoute(routeDestination: string) {
+  public onClickRoute(routeDestination: string) {
     this.router.navigate([routeDestination])
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if(this.userSub) {
       this.userSub.unsubscribe();
     }

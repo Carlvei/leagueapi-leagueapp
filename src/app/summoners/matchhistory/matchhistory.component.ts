@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from "@angular/core";
 import {MatchhistoryService} from "../matchhistory.service";
 import {MatchhistoryEntryOverview} from "./model/matchhistory-entry-overview.model";
 
@@ -8,14 +8,14 @@ import {MatchhistoryEntryOverview} from "./model/matchhistory-entry-overview.mod
   styleUrls: ['./matchhistory.component.scss']
 })
 export class MatchhistoryComponent implements OnInit {
-  @Input() summonerName: string = '';
-  matchhistoryEntries: MatchhistoryEntryOverview[] = [];
-  isLoading = false;
+  @Input() public summonerName: string = '';
+  public matchhistoryEntries: MatchhistoryEntryOverview[] = [];
+  public isLoading = false;
 
   constructor(private matchhistoryService: MatchhistoryService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.isLoading = true;
     this.matchhistoryService.queryMatchhistory(this.summonerName)
       .subscribe((response) => {

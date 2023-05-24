@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
 import {SummonersSearchComponent} from "./summoners/search/summoners-search.component";
 import {SignupComponent} from "./login/signup/signup.component";
 import {canActivateRoute} from "./login/auth.service";

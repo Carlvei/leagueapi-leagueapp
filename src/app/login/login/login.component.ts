@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {AuthService} from "../auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
               private route: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.authservice.isUserLoggedIn()) {
       this.router.navigate(["/loggedInUser/matchhistory"], {
           state: {
@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login(form: NgForm) {
+  public login(form: NgForm): void {
     this.authservice.login(new LoginRequest(form.value.email, form.value.password))
-      .subscribe((response) => {
+      .subscribe((_response) => {
           this.isLoggedIn = true
           this.router.navigate(["/loggedInUser/matchhistory"], {
               state: {
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       )
   }
 
-  onSignUpClick() {
+  public onSignUpClick(): void {
     this.router.navigate(["signup"], {relativeTo: this.route})
   }
 }
