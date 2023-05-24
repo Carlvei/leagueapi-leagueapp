@@ -27,6 +27,7 @@ import {UsernameRiotAccountDirective} from './directives/username-riot-account/u
 import {PasswordValidatorDirective} from './directives/password-validator/password-validator.directive';
 import {PasswordMatcherDirective} from './directives/password-matcher/password-matcher.directive';
 import {AppConfigService} from "./config/app-config.service";
+import { SummonersWrapperComponent } from './summoners/summoners-wrapper/summoners-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {AppConfigService} from "./config/app-config.service";
     LoginWrapperComponent,
     UsernameRiotAccountDirective,
     PasswordValidatorDirective,
-    PasswordMatcherDirective
+    PasswordMatcherDirective,
+    SummonersWrapperComponent
   ],
   imports: [
     BrowserModule,

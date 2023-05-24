@@ -77,6 +77,8 @@ export class AuthService {
 
 export const canActivateRoute: CanActivateFn =
   (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  // Dev mode, delete this after good session logic
+  return true;
     if (inject(AuthService).isUserLoggedIn()) {
       return true;
     } else {

@@ -6,7 +6,6 @@
 }
 
 .summoner {
-  border: 1px solid black;
   grid-column-start: 1;
   grid-column-end: 3;
   display: flex;
@@ -14,6 +13,9 @@
   column-gap: 20px;
   row-gap: 0;
   align-items: center;
+
+  box-shadow: inset 10px 10px 32px 0 #000000;
+
 }
 
 .summoner-img {
@@ -22,7 +24,6 @@
   object-fit: cover;
   width: auto;
   max-height: 100%;
-  border: 1px solid blue;
 }
 
 .summoner-name {
@@ -38,7 +39,8 @@
 }
 
 .matchhistory {
-  border: 1px solid black;
+  padding: 25px;
   width: 100%;
   overflow: scroll;
+  box-shadow: inset 10px 10px 32px 0 #000000;
 }

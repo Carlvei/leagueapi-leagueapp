@@ -6,6 +6,7 @@
 @use 'src/app/login/login/login-theme.component' as login;
 @use 'src/app/login/login-wrapper/login-wrapper-theme.component' as login-wrapper;
 @use 'src/app/login/signup/signup-theme.component' as signup;
+@use 'src/app/summoners/summoners-wrapper/summoners-wrapper-theme.component' as summoner-wrapper;
 
 // Plus imports for other components in your app.
 
@@ -110,6 +111,7 @@ $leagueapp-theme: mat.define-light-theme((
 @include login.color($leagueapp-theme);
 @include login-wrapper.color($leagueapp-theme);
 @include signup.color($leagueapp-theme);
+@include summoner-wrapper.color($leagueapp-theme);
 
 /* You can add global styles to this file, and also import other style files */
 

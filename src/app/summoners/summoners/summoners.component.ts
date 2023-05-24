@@ -22,12 +22,12 @@ export class SummonersComponent implements OnInit {
     this.route.paramMap
       .pipe(map(() => window.history.state))
       .subscribe(data => {
-        this.summonersService.querySummoner(data.name)
-          .subscribe((response) => {
-              this.summoner = response;
-            }
-          )
-
-      });
+          this.summonersService.querySummoner(data.name)
+            .subscribe((response) => {
+                this.summoner = response;
+              }
+            )
+        }
+      );
   }
 }

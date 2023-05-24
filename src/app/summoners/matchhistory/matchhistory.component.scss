@@ -3,11 +3,11 @@
 }
 
 .matchhistory-entry {
-  border: 1px solid blue;
   height: 20%;
   display: grid;
   grid-template-columns: 8% 15% 15% 20% 42%;
   grid-template-rows: 100%;
+  border-bottom: 3px solid black;
 }
 
 .summoner-icons {
@@ -20,6 +20,7 @@
   justify-content: center;
   max-height: 100%;
   max-width: 100%;
+  aspect-ratio: 3 / 4;
 }
 
 .champion-icon {
@@ -40,6 +41,7 @@
   box-sizing: border-box;
   object-fit: cover;
   width: auto;
+  aspect-ratio: 1 / 1;
 }
 
 .summoner-stats {
