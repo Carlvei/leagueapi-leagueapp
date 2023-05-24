@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
     console.log(form)
     this.authservice.signUp(new SignupRequest(form.value.username, form.value.requiredInputsGroup.email, form.value.requiredInputsGroup.password))
       .subscribe((response) => {
-          this.router.navigate(["/loggedInUser/matchhistory"], {
+          this.router.navigate(["/login"], {
               state: {
                 name: this.authservice.getLoggedInUsername()
               }
