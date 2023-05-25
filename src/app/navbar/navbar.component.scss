@@ -1,5 +1,29 @@
 @import "src/styles";
 
+// import the variables.scss file to reuse the variables which are declared there
+@import "/src/app/scss/variables";
+
+
+// here you can also encapsulate the classes below there you can see the example for (.header-logo and .img-logo
+// also you can reuse the variables from the _variable.scss file
+
+// .header-logo {
+//   float: left;
+//   min-width: fit-content;
+
+//   .img-logo {
+//     width: 50em;
+//     height: 50em;
+//   }
+// }
+
+// .navbar-wrapper {
+//   display: flex;
+//   height: 100%;
+//   width: 100%;
+//   border-bottom: $navbar-border-width inset;
+// }
+
 
 .header-logo {
   float: left;
