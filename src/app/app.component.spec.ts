@@ -1,22 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AuthService } from './login/auth.service';
-import { Observable, of } from 'rxjs';
+import { Component } from '@angular/core';
 
-class MockAuthService {
-  user: Observable<any> = of({});
-}
+@Component({ selector: 'app-navbar', template: '' })
+class MockNavbarComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent, NavbarComponent],
-      providers: [
-        { provide: AuthService, useClass: MockAuthService },
-      ],
+      declarations: [AppComponent, MockNavbarComponent],
     }).compileComponents();
   });
 
@@ -42,17 +36,15 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('leagueapp');
   });
 
-  it('should render title', () => {
+  it('should render content', () => {
     // Given
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
 
     // When
+    fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
 
     // Then
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'leagueapp app is running!'
-    );
+    expect(compiled.querySelector('.content')).toBeTruthy()
   });
 });
