@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 
 // Den
-interface AppConfig {
+export interface AppConfig {
   apiBaseUrl: string;
   gamedataServiceBaseUrl: string;
   authServiceBaseUrl: string;
@@ -11,12 +11,12 @@ interface AppConfig {
   authentication: AuthenticationConfig;
 }
 
-interface SummonersConfig {
+export interface SummonersConfig {
   summonersEndpoint: string;
   matchhistoryEndpoint: string;
 }
 
-interface AuthenticationConfig {
+export interface AuthenticationConfig {
   loginEndpoint: string;
   signUpEndpoint: string;
   accessTokenCookieName: string;
@@ -28,7 +28,7 @@ interface AuthenticationConfig {
   providedIn: 'root',
 })
 export class AppConfigService {
-  private appConfig!: AppConfig;
+  public appConfig!: AppConfig;
 
   constructor(private http: HttpClient) {}
 

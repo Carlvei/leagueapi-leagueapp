@@ -1,18 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {
+  CookieService,
+  CookieOptionsProvider,
+  COOKIE_OPTIONS,
+  COOKIE_WRITER,
+} from 'ngx-cookie';
 
-import { SummonersWrapperComponent } from './summoners-wrapper.component';
+import { SummonersService } from '../summoners.service';
+import { AuthService } from 'src/app/login/auth.service';
+import { SummonersComponent } from '../summoners/summoners.component';
 
-describe('SummonersWrapperComponent', () => {
-  let component: SummonersWrapperComponent;
-  let fixture: ComponentFixture<SummonersWrapperComponent>;
+describe('SummonersComponent', () => {
+  let component: SummonersComponent;
+  let fixture: ComponentFixture<SummonersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SummonersWrapperComponent ]
-    })
-    .compileComponents();
+      declarations: [SummonersComponent],
+      imports: [HttpClientTestingModule],
+      providers: [
+        SummonersService,
+        AuthService,
+        CookieService,
+        CookieOptionsProvider,
+        { provide: COOKIE_OPTIONS, useValue: {} },
+        { provide: COOKIE_WRITER, useValue: {} },
+      ],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(SummonersWrapperComponent);
+    fixture = TestBed.createComponent(SummonersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
