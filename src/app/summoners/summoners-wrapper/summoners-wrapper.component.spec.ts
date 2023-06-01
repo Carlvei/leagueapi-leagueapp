@@ -9,15 +9,20 @@ import {
 
 import { SummonersService } from '../summoners.service';
 import { AuthService } from 'src/app/login/auth.service';
-import { SummonersComponent } from '../summoners/summoners.component';
+import { SummonersWrapperComponent } from './summoners-wrapper.component';
+import { Component } from '@angular/core';
 
-describe('SummonersComponent', () => {
-  let component: SummonersComponent;
-  let fixture: ComponentFixture<SummonersComponent>;
+@Component({ selector: 'app-summoners', template: '' })
+class MockSummonersComponent {
+}
+
+describe('SummonersWrapperComponent', () => {
+  let component: SummonersWrapperComponent;
+  let fixture: ComponentFixture<SummonersWrapperComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SummonersComponent],
+      declarations: [SummonersWrapperComponent, MockSummonersComponent],
       imports: [HttpClientTestingModule],
       providers: [
         SummonersService,
@@ -29,7 +34,7 @@ describe('SummonersComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SummonersComponent);
+    fixture = TestBed.createComponent(SummonersWrapperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
