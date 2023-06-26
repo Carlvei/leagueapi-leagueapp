@@ -1,0 +1,79 @@
+@use '@angular/material' as mat;
+
+$leagueapp-primary-palette: (
+  50 : #edf6f7,
+  100 : #d3e8ec,
+  200 : #b6d8df,
+  300 : #99c8d2,
+  400 : #83bdc9,
+  500 : #6db1bf,
+  600 : #65aab9,
+  700 : #5aa1b1,
+  800 : #5098a9,
+  900 : #3e889b,
+  A100 : #edfbff,
+  A200 : #baf0ff,
+  A400 : #87e5ff,
+  A700 : #6ee0ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$leagueapp-accent-palette: (
+  50 : #ebecec,
+  100 : #cccfd0,
+  200 : #aab0b1,
+  300 : #889091,
+  400 : #6f787a,
+  500 : #556062,
+  600 : #4e585a,
+  700 : #444e50,
+  800 : #3b4446,
+  900 : #2a3334,
+  A100 : #88eefb,
+  A200 : #56e7fa,
+  A400 : #1ee6ff,
+  A700 : #04e3ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$leagueapp-primary: mat.define-palette($leagueapp-primary-palette);
+$leagueapp-accent: mat.define-palette($leagueapp-accent-palette);
+$leagueapp-warn: mat.define-palette(mat.$red-palette);
+
+$leagueapp-theme: mat.define-light-theme((
+  color: (
+    primary: $leagueapp-primary,
+    accent: $leagueapp-accent,
+    warn: $leagueapp-warn
+  )
+));

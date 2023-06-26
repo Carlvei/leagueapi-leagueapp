@@ -1,3 +1,6 @@
+@import "/src/app/scss/variables";
+@import "/src/app/scss/login-component-styles";
+
 .login-container {
   margin-left: 2%;
   margin-top: 1%;
@@ -19,6 +22,7 @@
   height: 100%;
   border-style: inset;
   border-width: 4px;
+  background-color: $background-grey;
 }
 
 .title-img {

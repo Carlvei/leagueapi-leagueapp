@@ -15,9 +15,8 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // TODO: add refresh logic
-
     // add exception for initializing config since the cookie name is needed here
-    if (req.url === '/assets/config/appconfig.json' || !req.url.startsWith('http://localhost:8080/')) {
+    if (!req.url.startsWith('http://localhost:8080/') || req.url === '/assets/config/appconfig.json') {
       return next.handle(req);
     }
     if (!this.authService.isUserLoggedIn()) {

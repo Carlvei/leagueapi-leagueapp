@@ -1,7 +1,14 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@import "palettes";
+
 // Colors
-$primary-color: #ff0000;
-$secondary-color: #00ff00;
-$accent-color: #0000ff;
+$white-on-grey: mat.get-color-from-palette($leagueapp-accent, 500-contrast);
+$blue-on-grey: mat.get-color-from-palette($leagueapp-primary, 500);
+$grey-on-blue: mat.get-color-from-palette($leagueapp-accent, 700);
+$warning-red: mat.get-color-from-palette($leagueapp-warn, 400);
+$background-grey: mat.get-color-from-palette($leagueapp-accent, 500);
 
 // Font Family
 $font-family: 'Kanit', sans-serif;
@@ -26,3 +33,9 @@ $header-element-padding: 1.8em;
 $header-element-hover-cursor: pointer;
 $logout-element-padding: 15px 30px 10px;
 $logout-element-margin-left: auto;
+
+// Authentication variables
+$authentication-headline-font-size: 4rem;
+$authentication-headline-font-weight: 500;
+
+

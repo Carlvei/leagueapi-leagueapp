@@ -1,74 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
+@import "/src/app/scss/variables";
+@import "src/app/scss/login-component-styles";
 
 .signup-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
+  @include authentication-form;
 
-.signup-input {
-  width: 100%;
-  height: 50px;
-  border-width: 3px;
-  border-radius: 25px;
-  margin-bottom: 10px;
-}
+  .signup-text {
+    @include authentication-headline;
+  }
 
-.signup-required-input {
-  width: 100%;
-  height: 50px;
-  border-width: 3px;
-  border-radius: 25px;
-  margin-bottom: 10px;
-}
+  .signup-input {
+    @include authentication-input;
+  }
 
-.signup-text {
-  font-weight: 500;
-  font-size: 4rem;
-  font-family: 'Kanit', sans-serif;
-}
+  .signup-input::content {
+    @include authentication-input-content;
+  }
 
-.signup-input::content {
-  padding-left: 25px;
-  padding-right: 25px;
-  font-size: 120%;
-}
+  .neutral-help-block {
+    @include authentication-neutral-help-block;
+  }
 
-.signup-required-input::content {
-  padding-left: 25px;
-  padding-right: 25px;
-  font-size: 120%;
-}
+  .required-inputs-group {
+    .signup-required-input-wrapper {
+      @include authentication-required-input-wrapper(signup)
+    }
 
-.signup-button {
-  height: 50px;
-  min-width: 120px;
-  border-width: 3px;
-  border-radius: 25px;
-  box-shadow: 10px 10px 32px 0 #000000;
-  font-weight: 700;
-  font-size: 175%;
-  align-self: flex-end;
-}
+    .warning-help-block {
+      @include authentication-warning-help-block;
+    }
+  }
 
-.alreadyhaveanaccounttext {
-  margin-top: 10%;
-  font-family: 'Kanit', sans-serif;
-  font-size: 1.5rem;
-}
+  .signup-button {
+    @include authentication-button;
+  }
 
-.neutral-help-block {
-  font-family: 'Kanit', sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: white;
-  padding: 0;
-}
+  .alreadyhaveanaccounttext {
+    @include authentication-info-text;
 
-.warning-help-block {
-  font-family: 'Kanit', sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  padding: 0;
+    .signup-route-text {
+      @include authentication-route-text;
+    }
+    .signup-route-text:hover {
+      @include authentication-route-text-hover;
+    }
+  }
 }

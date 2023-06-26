@@ -11,31 +11,4 @@
   .login-form-container {
     background-color: mat.get-color-from-palette($accent-palette, 500);
   }
-
-  .login-text {
-    color: mat.get-color-from-palette($accent-palette, 500-contrast);
-  }
-
-  .login-button {
-    background-color: mat.get-color-from-palette($primary-palette, 500);
-    color: mat.get-color-from-palette($accent-palette, 700);
-  }
-
-  .signup-button {
-    background-color: mat.get-color-from-palette($primary-palette, 500);
-    color: mat.get-color-from-palette($accent-palette, 700);
-  }
-
-  .donthaveanaccounttext {
-    color: mat.get-color-from-palette($accent-palette, 500-contrast);
-  }
-
-  .signupheretext {
-    color: mat.get-color-from-palette($primary-palette, 900)
-  }
-
-  .signupheretext:hover {
-    color: mat.get-color-from-palette($primary-palette, 900-contrast);
-    cursor: pointer;
-  }
 }

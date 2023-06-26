@@ -1,98 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
-// import the variables.scss file to reuse the variables which are declared there
 @import "/src/app/scss/variables";
-
-// Here you could potentially nest the SCSS code within each other. @Anes
-// For example the first two classes 
-
-/**
-   .login-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-
-  .login-text {
-    font-weight: 500;
-    font-size: 4rem;
-    font-family: 'Kanit', sans-serif;
-  }
-   */
-
-/**
-   // Reuse the the variables from _variables.scss @Anes
-   // Below there you have some examples how to reuse the variables @ Anes
-// .login-form {
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   height: 100%;
-
-// .login-text {
-//   font-weight: 500;
-//   font-size: $login-text-size;
-//   font-family: $font-family;
-// }
-
-// .login-input {
-//   width: 100%;
-//   height: $input-height;
-//   border-width: $input-border-width;
-//   border-radius: $input-border-radius;
-//   margin-bottom: 10px;
-// }
-
-// .login-input::content {
-//   padding-left: $input-padding;
-//   padding-right: $input-padding;
-//   font-size: 120%;
-// }
-
-*/
-
+@import "/src/app/scss/login-component-styles";
 
 .login-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  @include authentication-form;
+
+  .login-text {
+    @include authentication-headline;
+  }
+
+  .login-input {
+    @include authentication-input;
+  }
+
+  .login-input::content {
+    @include authentication-input-content;
+  }
+
+  .login-button {
+    @include authentication-button;
+  }
+
+  .donthaveanaccounttext {
+    @include authentication-info-text;
+
+    .signupheretext {
+      @include authentication-route-text;
+    }
+
+    .signupheretext:hover {
+      @include authentication-route-text-hover;
+    }
+  }
 }
-
-.login-text {
-  font-weight: 500;
-  font-size: 4rem;
-  font-family: 'Kanit', sans-serif;
-}
-
-.login-input {
-  width: 100%;
-  height: 50px;
-  border-width: 3px;
-  border-radius: 25px;
-  margin-bottom: 10px;
-}
-
-.login-input::content {
-  padding-left: 25px;
-  padding-right: 25px;
-  font-size: 120%;
-}
-
-.login-button {
-  height: 50px;
-  min-width: 120px;
-  border-width: 3px;
-  border-radius: 25px;
-  box-shadow: 10px 10px 32px 0 #000000;
-  font-weight: 700;
-  font-size: 175%;
-  align-self: flex-end;
-}
-
-.donthaveanaccounttext {
-  margin-top: 10%;
-  font-family: 'Kanit', sans-serif;
-  font-size: 1.5rem;
-}
-
-

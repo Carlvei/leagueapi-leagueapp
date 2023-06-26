@@ -1,0 +1,102 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import "variables";
+
+@mixin authentication-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin authentication-headline {
+  font-size: 4rem;
+  font-weight: 500;
+  font-family: $font-family;
+  color: white;
+}
+
+@mixin authentication-required-input-wrapper($component-name) {
+  .#{$component-name}-required-input {
+    @include authentication-input;
+  }
+  .#{$component-name}-required-input.ng-invalid.ng-touched {
+    @include authentication-required-input-border;
+  }
+  .#{$component-name}-required-input::content {
+    @include authentication-input-content;
+  }
+}
+
+@mixin authentication-input-wrapper($component-name) {
+  .#{$component-name}-input {
+    @include authentication-input;
+  }
+
+  .#{$component-name}-input::content {
+    @include authentication-input-content;
+  }
+}
+
+@mixin authentication-input {
+  width: 100%;
+  height: 50px;
+  border-width: 3px;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+
+@mixin authentication-input-content {
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 120%;
+}
+
+@mixin authentication-neutral-help-block {
+  font-family: $font-family;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+  padding: 0;
+}
+
+@mixin authentication-warning-help-block {
+  font-family: $font-family;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  padding: 0;
+  color: $warning-red;
+}
+
+@mixin authentication-button {
+  height: 50px;
+  min-width: 120px;
+  border-width: 3px;
+  border-radius: 25px;
+  box-shadow: 10px 10px 32px 0 #000000;
+  font-weight: 700;
+  font-size: 175%;
+  align-self: flex-end;
+  background-color: $blue-on-grey;
+  color: $grey-on-blue;
+}
+
+@mixin authentication-info-text {
+  margin-top: 10%;
+  font-family: $font-family;
+  font-size: 1.5rem;
+  color: $white-on-grey;
+}
+
+@mixin authentication-route-text {
+  color: $blue-on-grey;
+}
+
+@mixin authentication-route-text-hover {
+  color: $white-on-grey;
+  cursor: pointer;
+}
+
+@mixin authentication-required-input-border {
+  border-color: $warning-red;
+}
